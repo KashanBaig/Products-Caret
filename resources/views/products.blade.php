@@ -7,7 +7,7 @@ Products
 
 
 @section('content')
-    <table class="table">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Product Name</th>
@@ -16,19 +16,13 @@ Products
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Test</td>
-                <td>1000</td>
-                <td>Pajamas</td>
-            </tr>
-            <tr>
-                <td>Test</td>
-                <td>1000</td>
-                <td>Pajamas</td>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
+            @foreach ($products as $product)
+                <tr>
+                    <td>{{ $product->Prod_name }}</td>
+                    <td>{{ $product->Prod_price }}</td>
+                    <td>{{ $product->Cat_id }}</td>
+                </tr>              
+            @endforeach
         </tbody>
     </table>
     
