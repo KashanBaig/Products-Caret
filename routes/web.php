@@ -23,7 +23,7 @@ Route::get('/products', 'ProductController@getProducts');
 Route::get('/product/{id}', 'ProductController@getProduct');
 
 // delete a product
-Route::delete('/product/{id}', 'ProductController@destroyProduct');
+Route::get('/deleteProduct/{id}', 'ProductController@destroyProduct');
 
 // update a product
-Route::put('/product/{id}', 'ProductController@updateProduct');
+Route::put('/editProduct/{id}', 'ProductController@updateProduct');
