@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+// get all the products
+Route::get('/products', 'ProductController@getProducts');
+
+// get a single product
+Route::get('/product/{id}', 'ProductController@getProduct');
+
+// delete a product
+Route::delete('/product/{id}', 'ProductController@destroyProduct');
+
+// update a product
+Route::put('/product/{id}', 'ProductController@updateProduct');
