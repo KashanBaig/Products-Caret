@@ -23,4 +23,42 @@ class CategoryController extends Controller
 
         return redirect()->action('CategoryController@getCategories');
     }
+
+    //  category form
+    public function CatForm($id = null){
+
+        if($id == null){
+            //for add new
+            $category = null;
+            return view('CatForm', ['category' => $category]);
+        }else{
+            //for edit
+            $category = Category::findOrFail($id);
+            return view('CatForm', ['category' => $category]);
+        }
+        
+    }
+
+    // adding category
+    public function addCategory(Request $request){
+        $category = new Category;
+
+        $category->Cat_name = $request->input('Cat_name');
+
+        if($category->save()){
+            return redirect()->action('CategoryController@getCategories'); 
+        }
+    }
+
+    // edit product
+    public function editCategory(Request $request, $id){
+       
+        $category = Category::findOrFail($id);
+
+        $category->Cat_name = $request->Cat_name;
+
+        if($category->update()){
+            return redirect()->action('CategoryController@getCategories'); 
+        }
+    }
 }

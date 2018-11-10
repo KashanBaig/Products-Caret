@@ -37,3 +37,12 @@ Route::get('/categories', 'CategoryController@getCategories');
 
 // delete a product
 Route::get('/deleteCategory/{id}', 'CategoryController@destroyCategory');
+
+// add category form
+Route::get('/CatForm/{id?}', 'CategoryController@CatForm');
+
+// add a category
+Route::post('/addCategory', 'CategoryController@addCategory');
+
+// update a category
+Route::put('/editCategory/{id}', 'CategoryController@editCategory');
