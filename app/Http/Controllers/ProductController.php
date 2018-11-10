@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Product;
 use App\Category;
+
 
 use Illuminate\Http\Request;
 
@@ -53,6 +55,20 @@ class ProductController extends Controller
         $product->Cat_id = $request->input('category');
 
         if($product->save()){
+            return redirect()->action('ProductController@getProducts'); 
+        }
+    }
+
+    // edit product
+    public function editProduct(Request $request, $id){
+       
+        $product = Product::findOrFail($id);
+
+        $product->Prod_name = $request->Prod_name;
+        $product->Prod_price = $request->Prod_price;
+        $product->Cat_id = $request->category;
+
+        if($product->update()){
             return redirect()->action('ProductController@getProducts'); 
         }
     }

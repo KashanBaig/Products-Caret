@@ -29,4 +29,4 @@ Route::get('/deleteProduct/{id}', 'ProductController@destroyProduct');
 Route::post('/addProduct', 'ProductController@addProduct');
 
 // update a product
-Route::put('/editProduct/{id}', 'ProductController@updateProduct');
+Route::put('/editProduct/{id}', 'ProductController@editProduct');
