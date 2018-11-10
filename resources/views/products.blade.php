@@ -29,7 +29,7 @@ Products
                     @endforeach  
 
                     <td>
-                        <a href="/product/{{ $product->Prod_id }}">
+                        <a href="/ProdForm/{{ $product->id }}">
                             <i class="fa fa-pencil-square-o"></i>
                         </a>
                         <a href="/deleteProduct/{{ $product->id }}">

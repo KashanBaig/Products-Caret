@@ -19,8 +19,8 @@ Route::get('/', function () {
 // get all the products
 Route::get('/products', 'ProductController@getProducts');
 
-// add product
-Route::get('/ProdForm', 'ProductController@ProdForm');
+// add product form
+Route::get('/ProdForm/{id?}', 'ProductController@ProdForm');
 
 // delete a product
 Route::get('/deleteProduct/{id}', 'ProductController@destroyProduct');

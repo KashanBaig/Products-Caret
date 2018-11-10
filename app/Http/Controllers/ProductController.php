@@ -25,14 +25,23 @@ class ProductController extends Controller
         $categories = Category::all();
         $products = Product::all();
 
-        return view('products', ['products'=> $products, 'categories'=> $categories]);
+        return redirect()->action('ProductController@getProducts');
     }
 
     //  product form
-    public function ProdForm(){
+    public function ProdForm($id = null){
         $categories = Category::all();
-    
-        return view('ProdForm', ['categories' => $categories]);
+
+        if($id == null){
+            //for add new
+            $product = null;
+            return view('ProdForm', ['categories' => $categories, 'product' => $product]);
+        }else{
+            //for edit
+            $product = Product::findOrFail($id);
+            return view('ProdForm', ['categories' => $categories, 'product' => $product]);
+        }
+        
     }
 
     // adding product
@@ -42,9 +51,6 @@ class ProductController extends Controller
         $product->Prod_name = $request->input('Prod_name');
         $product->Prod_price = $request->input('Prod_price');
         $product->Cat_id = $request->input('category');
-
-        //$categories = Category::all();
-        //$products = Product::all();
 
         if($product->save()){
             return redirect()->action('ProductController@getProducts'); 
