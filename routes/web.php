@@ -30,3 +30,10 @@ Route::post('/addProduct', 'ProductController@addProduct');
 
 // update a product
 Route::put('/editProduct/{id}', 'ProductController@editProduct');
+
+
+//get all categories
+Route::get('/categories', 'CategoryController@getCategories');
+
+// delete a product
+Route::get('/deleteCategory/{id}', 'CategoryController@destroyCategory');
