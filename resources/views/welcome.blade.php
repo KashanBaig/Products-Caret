@@ -6,5 +6,8 @@ Welcome
 
 
 @section('content')
- <p>hello world</p>
+
+    <a href="/ProdForm" class="btn btn-primary">Add New Product</a>
+
+    <p>hello world</p>
 @endsection

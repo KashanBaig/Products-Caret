@@ -19,11 +19,14 @@ Route::get('/', function () {
 // get all the products
 Route::get('/products', 'ProductController@getProducts');
 
-// get a single product
-Route::get('/product/{id}', 'ProductController@getProduct');
+// add product
+Route::get('/ProdForm', 'ProductController@ProdForm');
 
 // delete a product
 Route::get('/deleteProduct/{id}', 'ProductController@destroyProduct');
+
+// add a product
+Route::post('/addProduct', 'ProductController@addProduct');
 
 // update a product
 Route::put('/editProduct/{id}', 'ProductController@updateProduct');

@@ -21,7 +21,13 @@ Products
                 <tr style="cursor: pointer;">
                     <td>{{ $product->Prod_name }}</td>
                     <td>{{ $product->Prod_price }}</td>
-                    <td>{{ $product->Cat_id }}</td>
+
+                    @foreach($categories as $category)
+                        @if($product->Cat_id == $category->id)
+                            <td>{{ $category->Cat_name }}</td>
+                        @endif
+                    @endforeach  
+
                     <td>
                         <a href="/product/{{ $product->Prod_id }}">
                             <i class="fa fa-pencil-square-o"></i>
